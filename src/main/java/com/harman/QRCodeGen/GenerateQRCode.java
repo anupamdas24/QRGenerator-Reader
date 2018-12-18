@@ -19,12 +19,29 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 public class GenerateQRCode {
 
+	/*
 	public static void main(String[] args) throws WriterException, IOException {
+		String Name;
+		String Address;
+		String WardNumber;
+
 		Scanner sc= new Scanner(System.in);
 		StringBuilder strBuild=new StringBuilder();
 
-		System.out.println("Please enter the below details");
-		System.out.println(strBuild.append(sc.nextLine()));
+		Name=sc.next();
+		System.out.print("Name :"+Name);
+		System.out.println("\n");
+		strBuild.append(Name);
+
+		Address=sc.nextLine();
+		System.out.print("Address :"+Address);
+		System.out.println("\n");
+		strBuild.append(Address);
+
+		WardNumber=sc.next();
+		System.out.print("WardNumber :"+WardNumber);
+		System.out.println("\n");
+		strBuild.append(WardNumber);
 
 		String qrCodeText=strBuild.toString();
 
@@ -36,6 +53,33 @@ public class GenerateQRCode {
 		createQRImage(qrFile,qrCodeText,size,fileType);
 
 	}
+	*/
+
+	public static void main(String[] args) throws WriterException, IOException {
+		Scanner sc= new Scanner(System.in);
+		StringBuilder strBuild=new StringBuilder();
+
+		System.out.println("Please enter the below details");
+
+
+		System.out.println("Name :"+strBuild.append(sc.nextLine()));
+		strBuild.append(" ");
+		System.out.println("Address :"+strBuild.append(sc.nextLine()));
+		strBuild.append(" ");
+		System.out.println("WardNumber :"+strBuild.append(sc.nextLine()));
+
+		String qrCodeText=strBuild.toString();
+
+		final String filePath = "./MyQRCode.png";
+		int size=125;
+		String fileType="png";
+		File qrFile=new File(filePath);
+
+		createQRImage(qrFile,qrCodeText,size,fileType);
+
+	}
+
+
 
 	private static void createQRImage(File qrFile, String qrCodeText, int size, String fileType) throws WriterException, IOException {
 
